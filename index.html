@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>フォーム</title>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+  </head>
+  <body>
+    <input type="email" id="email" placeholder="EMAIL" /><br>
+    <input type="text" id="title" placeholder="title" /><br>
+    <textarea id="contents" placeholder="Contents"></textarea><br>
+    <input type="button" onclick="post()" value="送信!">
+    <script>
+        function post(){
+            var EMAIL = document.getElementById("email").value;
+            var CONTENTS=document.getElementById("contents").value;
+            var TITLE=document.getElementById("title").value;
+                Email.send({
+                Host : "server",
+                Username : "username",
+                Password : "password",
+                To : EMAIL,
+                From : "mailaddress",
+                Subject : TITLE,
+                Body : CONTENTS
+            }).then(
+            message => alert(message)
+            );
+        }
+
+    </script>
+  </body>
+</html>
